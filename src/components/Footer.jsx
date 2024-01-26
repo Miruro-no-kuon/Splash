@@ -21,6 +21,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem; /* 1rem = ${baseFontSize}px */
+  margin-top: 2.5em;
 `;
 
 const FooterContainer = styled.footer`
@@ -78,7 +79,7 @@ const FooterLogoImage = styled.img`
   top: -3rem; /* -40px / 16 = -2.5rem */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 999;
+  z-index: 3;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
 

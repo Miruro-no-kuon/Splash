@@ -5,10 +5,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const StyledNavbar = styled.div`
+  position: sticky;
+  top: 0.5rem;
   text-align: center;
-  margin-bottom: 1rem;
-  max-width: 75rem;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
+  background-color: var(--global-primary-bg-tr);
+  backdrop-filter: blur(10px);
+  border-radius: 0.2rem;
+  transition: transform 0.2s ease-in-out;
+  transform: translateY(0);
+  z-index: 4;
+
+  &.hidden {
+    transform: translateY(-110%);
+  }
 `;
 
 const TopContainer = styled.div`
@@ -18,14 +28,14 @@ const TopContainer = styled.div`
 `;
 
 const LogoLink = styled(Link)`
-  font-size: 1.25rem;
   max-width: 8rem;
-  content: var(--logo-text-transparent);
-  cursor: pointer;
+  padding: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
   text-decoration: none;
   color: var(--global-text);
-  padding: 0.5rem;
-  font-weight: bold;
+  content: var(--logo-text-transparent);
+  cursor: pointer;
   transition: 0.2s;
 `;
 
@@ -82,7 +92,7 @@ const ThemeToggleBtn = styled.button`
   color: var(--global-text);
   font-size: 1.2rem;
   cursor: pointer;
-  padding: 1rem;
+  padding: 0.8rem;
   transition: color 0.2s;
 
   &:hover {
@@ -117,6 +127,9 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState(
     searchParams.get("query") || ""
   );
+  const [scrollingDown, setScrollingDown] = useState(false);
+  const navbarRef = useRef(null);
+  const delayTimeout = useRef(null);
 
   useEffect(() => {
     document.documentElement.classList.toggle("light-mode", isDarkMode);
@@ -143,7 +156,11 @@ const Navbar = () => {
   }, [searchParams]);
 
   const navigateWithQuery = (value) => {
-    navigate(value ? `/search?query=${value}` : "/search");
+    clearTimeout(delayTimeout.current);
+
+    delayTimeout.current = setTimeout(() => {
+      navigate(value ? `/search?query=${value}` : "/search");
+    }, 400);
   };
 
   const handleInputChange = (e) => {
@@ -160,8 +177,35 @@ const Navbar = () => {
 
   const toggleTheme = () => setIsDarkMode((prev) => !prev);
 
+  const handleScroll = () => {
+    const threshold = 5;
+    let lastScrollY = window.scrollY;
+
+    return () => {
+      const currentScrollY = window.scrollY;
+
+      if (Math.abs(currentScrollY - lastScrollY) > threshold) {
+        if (currentScrollY < lastScrollY) {
+          setScrollingDown(false);
+          navbarRef.current.classList.remove("hidden");
+        } else {
+          setScrollingDown(true);
+          navbarRef.current.classList.add("hidden");
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    };
+  };
+
+  useEffect(() => {
+    const onScroll = handleScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollingDown]);
+
   return (
-    <StyledNavbar>
+    <StyledNavbar ref={navbarRef} className={scrollingDown ? "hidden" : ""}>
       <TopContainer>
         <LogoLink to="/home">見るろ の 久遠</LogoLink>{" "}
         <ThemeToggleBtn onClick={toggleTheme}>
