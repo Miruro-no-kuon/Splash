@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-import BLACK_LOGO from "/src/assets/BLACK_TR_LOGO.png";
-import WHITE_LOGO from "/src/assets/WHITE_TR_LOGO.png";
+import logoTextTransparentBlack from "/src/assets/miruro-text-transparent-black.png";
+import logoTextTransparentWhite from "/src/assets/miruro-text-transparent-white.png";
+import logoTransparentBlack from "/src/assets/miruro-transparent-black.png";
+import logoTransparentWhite from "/src/assets/miruro-transparent-white.png";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -28,9 +30,9 @@ const GlobalStyles = createGlobalStyle`
   --global-card-title-bg: #151515;
   --primary-accent: #ffffff;
   --primary-accent-bg: #5900FF;
-
-  /* Logo Images */
-  --global-tr-logo: url(${WHITE_LOGO});
+  
+  --logo-text-transparent: url(${logoTextTransparentWhite});
+  --logo-transparent: url(${logoTransparentWhite});
 }
 
 /* Light Mode Specific Colors */
@@ -56,9 +58,8 @@ const GlobalStyles = createGlobalStyle`
   --global-secondary-bg: #e0e0e0;
   --global-tertiary-bg: #eaeaea;
 
-  /* Logo Images */
-  --global-tr-logo: url(${BLACK_LOGO});
-
+  --logo-text-transparent: url(${logoTextTransparentBlack});
+  --logo-transparent: url(${logoTransparentBlack});
 }
 
 /* Basic app styles */
