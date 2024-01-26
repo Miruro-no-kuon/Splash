@@ -1,18 +1,15 @@
-# 💦 Splash Component
+# 🏠 Splash page 
 
 ## 📋 Overview
 
-The "Splash" component is a React component that serves as the landing page for the Miruro anime streaming website. It displays a banner image, a title, a subtitle, and various sections of content, each providing information about Miruro and its features.
+The "Splash" page is a component that serves as the landing page for the Miruro anime streaming website. It displays a banner image, a title, a subtitle, and various sections of content, each providing information about Miruro and its features.
 
-## 💉 Purpose
+## 📖 Purpose & Features
 
 This component is designed to create an engaging and informative landing page for Miruro visitors. It introduces users to the website's key features, safety measures, and usage instructions.
 
-## ✨ Key Features
-
-- Displays a banner image with a background that covers the entire viewport.
+- Displays a banner image with a background with a logo and "Go to home page" button.
 - Utilizes styled-components to create styled elements and animations.
-- Features a "Go to homepage" button that navigates to the Miruro homepage.
 - Includes multiple sections of content with titles and descriptive paragraphs.
 - Utilizes React icons (e.g., :arrow_right:, :white_check_mark:) for visual elements.
 
@@ -61,8 +58,6 @@ Contributions to this component and the Miruro project are welcome and encourage
 6. Push your changes to your forked repository: `git push origin feature/your-feature-name`.
 7. Create a pull request (PR) to the main Miruro repository.
 
-Please make sure to follow our [Code of Conduct](CODE_OF_CONDUCT.md) and adhere to our coding standards and guidelines. We appreciate your contributions!
-
 ---
 
-Feel free to reach out if you have any questions or need further assistance. Happy coding! 🚀
+Feel free to reach out at **miruro@proton.me** if you have any questions or need further assistance. Happy coding! 🚀
