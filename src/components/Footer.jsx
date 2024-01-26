@@ -153,16 +153,32 @@ function Footer() {
     <PageWrapper>
       <FooterContainer>
         <SocialIconsWrapper>
-          <a href="https://twitter.com/miruro_official">
+          <a
+            href="https://twitter.com/miruro_official"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-twitter"></i>
           </a>
-          <a href="https://discord.gg/4kfypZ96K4">
+          <a
+            href="https://discord.gg/4kfypZ96K4"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-discord"></i>
           </a>
-          <a href="https://github.com/Miruro-no-kuon/Miruro-no-Kuon">
+          <a
+            href="https://github.com/Miruro-no-kuon/Miruro-no-Kuon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://www.reddit.com/r/miruro">
+          <a
+            href="https://www.reddit.com/r/miruro"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-reddit"></i>
           </a>
         </SocialIconsWrapper>
