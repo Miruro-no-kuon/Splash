@@ -9,11 +9,13 @@ const GlobalStyles = createGlobalStyle`
 /* Base Colors - Darker Shades for Dark Mode */
 :root {
   --global-primary-bg: #080808;
+  --global-primary-bg-tr: rgba(8, 8, 8, 0.8);
   --global-ad-bg: #141414;
   --global-input-div: #141414;
   --global-text: #e8e8e8;
   --global-card-bg: #181818;
   --global-card-shadow: rgba(0, 0, 0, 0.6);
+  --global-card-button-shadow: rgba(255, 255, 255, 0.6);
   --global-primary-skeleton: rgba(85, 85, 85, 0.1);
   --global-secondary-skeleton: rgba(85, 85, 85, 0.3);
   --global-button-bg: #202020;
@@ -24,13 +26,16 @@ const GlobalStyles = createGlobalStyle`
   --global-genre-button-bg: #222222;
   --global-genre-button-bg: #2a2a2a;
   --global-shadow: rgba(255, 255, 255, 0.08);
-  --global-filter: rgba(0, 0, 0, 0.65);
+  --global-filter: rgba(0, 0, 0, 0.60);
   --global-secondary-bg: #141414;
   --global-tertiary-bg: #222222;
   --global-card-title-bg: #151515;
-  --primary-accent: #ffffff;
-  --primary-accent-bg: #5900FF;
   
+  --primary-accent: #ffffff;
+  --primary-accent-bg: #5900ff;
+  --primary-accent-bg-tr: rgba(89, 0, 255, 0.5);
+
+
   --logo-text-transparent: url(${logoTextTransparentWhite});
   --logo-transparent: url(${logoTransparentWhite});
 }
@@ -38,12 +43,14 @@ const GlobalStyles = createGlobalStyle`
 /* Light Mode Specific Colors */
 :root.light-mode {
   --global-primary-bg: #f5f5f5;
+  --global-primary-bg-tr: rgba(245, 245, 245, 0.8);
   --global-ad-bg: #e0e0e0;
   --global-input-div: #e0e0e0;
   --global-text: #333333;
   --global-card-bg: #ffffff;
   --global-card-title-bg: #e8e8e8;
   --global-card-shadow: rgba(0, 0, 0, 0.2);
+  --global-card-button-shadow: rgba(0, 0, 0, 0.6);
   --global-primary-skeleton: rgba(165, 165, 165, 0.1);
   --global-secondary-skeleton: rgba(165, 165, 165, 0.3);
   --global-button-bg: #e0e0e0;
@@ -54,7 +61,7 @@ const GlobalStyles = createGlobalStyle`
   --global-genre-button-bg: #d4d4d4;
   --global-genre-button-bg: #bdbdbd;
   --global-shadow: rgba(0, 0, 0, 0.1);
-  --global-filter: rgba(0, 0, 0, 0.65);
+  --global-filter: rgba(0, 0, 0, 0.60);
   --global-secondary-bg: #e0e0e0;
   --global-tertiary-bg: #eaeaea;
 
@@ -64,14 +71,15 @@ const GlobalStyles = createGlobalStyle`
 
 /* Basic app styles */
 body {
-  font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  font-family: Overpass, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   margin: 0;
   padding: 0 1rem 1rem 1rem;
   max-width: 125rem;
   margin: auto;
   background-color: var(--global-primary-bg);
   color: var(--global-text);
-  transition: 0.2s ease;
+  transition: 0.1s ease;
 }
 
 /* Selection styles */

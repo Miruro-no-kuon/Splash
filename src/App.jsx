@@ -1,9 +1,25 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Splash from "./pages/Splash";
+import ScrollToTopButton from "./components/ScrollUp";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   useEffect(() => {
@@ -20,10 +36,12 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <ScrollToTop />
       <SpeedInsights />
       <Routes>
         <Route path="/" element={<Splash />} />
       </Routes>
+      <ScrollToTopButton />
       <Footer />
     </Router>
   );
