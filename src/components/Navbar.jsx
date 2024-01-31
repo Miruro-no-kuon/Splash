@@ -144,9 +144,9 @@ const detectUserTheme = () => {
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
   ) {
-    return false; // User prefers dark mode
+    return true;
   }
-  return true; // User prefers light mode
+  return false;
 };
 
 const Navbar = () => {
@@ -176,7 +176,7 @@ const Navbar = () => {
 
   // Toggle Dark Mode
   useEffect(() => {
-    document.documentElement.classList.toggle("light-mode", isDarkMode);
+    document.documentElement.classList.toggle("dark-mode", isDarkMode);
   }, [isDarkMode]);
 
   // Keyboard navigation
@@ -228,7 +228,7 @@ const Navbar = () => {
   return (
     <StyledNavbar ref={navbarRef} isTop={isTop}>
       <TopContainer>
-        <LogoLink to="/home">見るろ の 久遠</LogoLink>{" "}
+        <LogoLink to="/">見るろ の 久遠</LogoLink>{" "}
         <ThemeToggleBtn onClick={toggleTheme}>
           <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
         </ThemeToggleBtn>

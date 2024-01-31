@@ -7,7 +7,7 @@ import logoTransparentWhite from "/src/assets/miruro-transparent-white.png";
 const GlobalStyles = createGlobalStyle`
 
 /* Base Colors - Darker Shades for Dark Mode */
-:root {
+:root.dark-mode {
   --global-primary-bg: #080808;
   --global-primary-bg-tr: rgba(8, 8, 8, 0.8);
   --global-ad-bg: #141414;
@@ -41,7 +41,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 /* Light Mode Specific Colors */
-:root.light-mode {
+:root {
   --global-primary-bg: #f5f5f5;
   --global-primary-bg-tr: rgba(245, 245, 245, 0.8);
   --global-ad-bg: #e0e0e0;

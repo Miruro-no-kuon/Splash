@@ -14,7 +14,7 @@ import {
   FaTwitter,
   FaGithub,
 } from "react-icons/fa";
-import BannerImageURL from "/src/assets/banner-one_piece.jpg";
+import BannerImageURL from "/src/assets/banner-one_piece-compressed.jpg";
 import LogoURL from "/src/assets/miruro-text-transparent-white.png";
 
 const colors = {
@@ -224,8 +224,13 @@ const ShareButton = styled.a`
   color: inherit;
   text-decoration: none;
 
+  svg {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+  }
+
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.35);
   }
 `;
 
@@ -422,7 +427,7 @@ const sections = [
               target="_blank"
               rel="noopener noreferrer"
             >
-              Reddit page
+              Subreddit
             </StyledLink>{" "}
             for community support and information.
           </li>
@@ -442,7 +447,7 @@ function Splash() {
             <SplashLogo src={LogoURL} alt="Footer Logo" />
           </Title>
           <ContentWrapper>
-            <Button to="/home">
+            <Button to="/">
               Go to homepage <FaArrowRight />
             </Button>
             <Subtitle>
@@ -468,25 +473,11 @@ function Splash() {
           </ShareText>
           <ShareButtons>
             <ShareButton
-              href="mailto:miruro@proton.me"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaEnvelope />
-            </ShareButton>
-            <ShareButton
               href="https://twitter.com/miruro_official"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaTwitter />
-            </ShareButton>
-            <ShareButton
-              href="https://www.reddit.com/r/miruro"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaReddit />
             </ShareButton>
             <ShareButton
               href="https://discord.gg/4kfypZ96K4"
@@ -501,6 +492,13 @@ function Splash() {
               rel="noopener noreferrer"
             >
               <FaGithub />
+            </ShareButton>
+            <ShareButton
+              href="https://www.reddit.com/r/miruro"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaReddit />
             </ShareButton>
           </ShareButtons>
         </ShareSection>
