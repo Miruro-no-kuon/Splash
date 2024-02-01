@@ -23,7 +23,7 @@
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^0.10.2",
+    "@aws-amplify/backend": "^0.10.3",
     "@aws-amplify/backend-cli": "^0.9.7",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
