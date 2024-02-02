@@ -1,6 +1,7 @@
 // NotFound.jsx
 import React from "react";
 import styled from "styled-components";
+import Image404URL from "/src/assets/404-Page-not-found.gif";
 
 // Styled component to center content
 const CenteredContent = styled.div`
@@ -19,7 +20,7 @@ const CenteredContent = styled.div`
 const NotFound = () => {
   return (
     <CenteredContent>
-      <img src="/src/assets/404-Page-not-found.gif" alt="404 Not Found" />
+      <img src={Image404URL} alt="Image404URL" />
       <p>The page you are looking for does not exist.</p>
     </CenteredContent>
   );
