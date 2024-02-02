@@ -55,7 +55,7 @@ const LogoLink = styled(Link)`
   transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 
   &:hover {
-    color: #someHoverColor; // Replace with your hover color
+    //color: #someHoverColor; // Replace with your hover color
     transform: scale(1.05);
   }
 `;
@@ -214,7 +214,17 @@ const Navbar = () => {
   const handleInputChange = (e) => {
     const newValue = e.target.value;
     setSearchQuery(newValue);
-    navigateWithQuery(newValue, e.key === "Enter" ? 0 : 1000);
+
+    // Check if the Enter key is pressed
+    if (e.key === "Enter") {
+      // Build the search URL with the query
+      const searchUrl = `https://www.miruro.tv/search?query=${newValue}`;
+      // Navigate to the new domain
+      window.location.href = searchUrl;
+    } else {
+      // Remove this line to prevent automatic search on every input change
+      // navigateWithQuery(newValue, 1000);
+    }
   };
 
   const handleClearSearch = () => {

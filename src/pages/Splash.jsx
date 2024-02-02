@@ -447,7 +447,7 @@ function Splash() {
             <SplashLogo src={LogoURL} alt="Footer Logo" />
           </Title>
           <ContentWrapper>
-            <Button to="/">
+            <Button to="https://www.miruro.tv">
               Go to homepage <FaArrowRight />
             </Button>
             <Subtitle>
@@ -506,11 +506,11 @@ function Splash() {
           <div key={index}>
             {section.title && (
               <>
-                <Advertising>* Advertisements here *</Advertising>
                 <strong>{section.title}</strong>
               </>
             )}
             {section.content}
+            <Advertising>* Advertisements here *</Advertising>
           </div>
         ))}
       </MainContent>
