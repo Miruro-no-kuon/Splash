@@ -199,3 +199,6 @@ amplifytools.xcconfig
 # amplify
 .amplify
 amplifyconfiguration*
+
+#bun.lockb
+bun.lockb
