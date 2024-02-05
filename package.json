@@ -13,7 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "aws-amplify": "^6.0.13",
-    "bun": "^1.0.25",
+    "bun": "^1.0.26",
     "fortawesome": "^0.0.1-security",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
