@@ -17,12 +17,9 @@ const fadeInAnimation = keyframes`
 `;
 
 const StyledNavbar = styled.div`
-  position: sticky;
   top: 0;
   text-align: center;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding: 0 1rem 1rem;
+  margin: 0 auto; /* Center horizontally by setting left and right margins to auto */
   background-color: ${(props) =>
     props.isTop
       ? "transparent"
@@ -30,7 +27,8 @@ const StyledNavbar = styled.div`
   backdrop-filter: blur(50px);
   transform: translateY(0);
   z-index: 4;
-  width: calc(100%);
+  max-width: 800px; /* Set a maximum width for the navbar */
+  width: 100%; /* Set it to 100% to take the full width */
   animation: ${fadeInAnimation} 0.5s ease-out;
   transition: 0.1s ease-in-out;
 `;
@@ -38,11 +36,22 @@ const StyledNavbar = styled.div`
 const TopContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Center-align the content horizontally */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 100%; /* Allow content to take the full width */
+`;
+
+const ThemeToggleContainer = styled.div`
+  position: absolute;
+  top: 1rem; /* Adjust the top position as needed */
+  right: 0rem; /* Adjust the right position as needed */
+  padding: 0.5rem -5;
+  z-index: 5; /* Ensure it's above other elements */
 `;
 
 const LogoLink = styled(Link)`
-  max-width: 7rem;
+  width: 9rem;
   padding: 0;
   font-size: 1.25rem;
   font-weight: bold;
@@ -55,7 +64,6 @@ const LogoLink = styled(Link)`
   transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 
   &:hover {
-    //color: #someHoverColor; // Replace with your hover color
     transform: scale(1.05);
   }
 `;
@@ -239,10 +247,12 @@ const Navbar = () => {
     <StyledNavbar ref={navbarRef} isTop={isTop}>
       <TopContainer>
         <LogoLink to="/">見るろ の 久遠</LogoLink>{" "}
+      </TopContainer>
+      <ThemeToggleContainer>
         <ThemeToggleBtn onClick={toggleTheme}>
           <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
         </ThemeToggleBtn>
-      </TopContainer>
+      </ThemeToggleContainer>
       <InputContainer>
         <Icon $isFocused={isSearchFocused}>
           <i className="fas fa-search"></i>

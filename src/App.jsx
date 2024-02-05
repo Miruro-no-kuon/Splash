@@ -8,8 +8,8 @@ import {
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Splash from "./pages/Splash";
-import ScrollToTopButton from "./components/ScrollUp";
-import NotFound from "./components/404"; // Import the 404 page component
+// import ScrollToTopButton from "./components/ScrollUp";
+import Info from "./components/Info";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,10 +39,11 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Splash />} />
-        {/* Add a Route for the 404 page */}
-        <Route path="*" element={<NotFound />} />
+        {/* Add a Route "Splash" for any other route*/}
+        <Route path="*" element={<Splash />} />
+        <Route path="Info" element={<Info />} />
       </Routes>
-      <ScrollToTopButton />
+      {/* <ScrollToTopButton /> */}
       <Footer />
     </Router>
   );

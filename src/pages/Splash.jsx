@@ -4,15 +4,13 @@ import { Link } from "react-router-dom";
 import {
   FaArrowRight,
   FaCheckCircle,
-  FaUser,
-  FaStar,
-  FaComments,
-  FaInfoCircle,
   FaEnvelope,
   FaReddit,
   FaDiscord,
   FaTwitter,
   FaGithub,
+  FaBroadcastTower,
+  FaShareAlt,
 } from "react-icons/fa";
 import BannerImageURL from "/src/assets/banner-one_piece-compressed.jpg";
 import LogoURL from "/src/assets/miruro-text-transparent-white.png";
@@ -235,16 +233,11 @@ const ShareButton = styled.a`
 `;
 
 const StyledLink = styled.a`
-  color: ${colors.customColor};
+  color: #744aff;
   text-decoration: none;
   font-weight: bold;
-
   &:hover {
     text-decoration: underline;
-  }
-
-  &:visited {
-    color: ${colors.customColor};
   }
 `;
 
@@ -324,70 +317,98 @@ const sections = [
       </>
     ),
   },
+  // {
+  //   title: "How to Use Miruro",
+  //   content: (
+  //     <>
+  //       <Paragraph>
+  //         To start using Miruro and enjoy anime streaming, follow these simple
+  //         steps:
+  //       </Paragraph>
+  //       <ol>
+  //         <li>
+  //           Visit the Miruro website by clicking on the "Go to homepage" button
+  //           above.
+  //         </li>
+  //         <li>
+  //           Browse through our extensive collection of anime titles and select
+  //           the one you want to watch.
+  //         </li>
+  //         <li>
+  //           Choose your preferred streaming quality and language (subtitles or
+  //           dubbing).
+  //         </li>
+  //         <li>Click on the play button to start watching your chosen anime.</li>
+  //         <li>
+  //           Feel free to explore other features, such as downloading episodes
+  //           and joining our anime-loving community.
+  //         </li>
+  //       </ol>
+  //       <Paragraph>
+  //         That's it! You're now ready to embark on an exciting anime viewing
+  //         journey with Miruro.
+  //       </Paragraph>
+  //     </>
+  //   ),
+  // },
+  // {
+  //   title: "Additional Information",
+  //   content: (
+  //     <>
+  //       <Paragraph>
+  //         We are continuously working to improve Miruro and provide you with the
+  //         best anime streaming experience. Here are some additional details:
+  //       </Paragraph>
+  //       <ul>
+  //         <li>
+  //           <FaUser /> <strong>User Profiles:</strong> Create your own user
+  //           profile and personalize your anime watching experience.
+  //         </li>
+  //         <li>
+  //           <FaStar /> <strong>Rating System:</strong> Rate and review your
+  //           favorite anime series and episodes.
+  //         </li>
+  //         <li>
+  //           <FaComments /> <strong>Community Chat:</strong> Join discussions and
+  //           chat with other anime enthusiasts.
+  //         </li>
+  //         <li>
+  //           <FaInfoCircle /> <strong>FAQ:</strong> Find answers to common
+  //           questions in our FAQ section.
+  //         </li>
+  //       </ul>
+  //     </>
+  //   ),
+  // },
   {
-    title: "How to Use Miruro",
+    title: "Official domains",
     content: (
       <>
         <Paragraph>
-          To start using Miruro and enjoy anime streaming, follow these simple
-          steps:
-        </Paragraph>
-        <ol>
-          <li>
-            Visit the Miruro website by clicking on the "Go to homepage" button
-            above.
-          </li>
-          <li>
-            Browse through our extensive collection of anime titles and select
-            the one you want to watch.
-          </li>
-          <li>
-            Choose your preferred streaming quality and language (subtitles or
-            dubbing).
-          </li>
-          <li>Click on the play button to start watching your chosen anime.</li>
-          <li>
-            Feel free to explore other features, such as downloading episodes
-            and joining our anime-loving community.
-          </li>
-        </ol>
-        <Paragraph>
-          That's it! You're now ready to embark on an exciting anime viewing
-          journey with Miruro.
-        </Paragraph>
-      </>
-    ),
-  },
-  {
-    title: "Additional Information",
-    content: (
-      <>
-        <Paragraph>
-          We are continuously working to improve Miruro and provide you with the
-          best anime streaming experience. Here are some additional details:
+          If you experience downtime on one of our domains, please know that you
+          are currently on our{" "}
+          <StyledLink href="https://www.miruro.com">
+            <strong>main</strong>
+          </StyledLink>{" "}
+          website. You'll find links to other operational domains right here,
+          ensuring a seamless and uninterrupted streaming experience.
         </Paragraph>
         <ul>
           <li>
-            <FaUser /> <strong>User Profiles:</strong> Create your own user
-            profile and personalize your anime watching experience.
+            <FaBroadcastTower />{" "}
+            <StyledLink href="https://www.miruro.tv"> Miruro.tv</StyledLink>
           </li>
           <li>
-            <FaStar /> <strong>Rating System:</strong> Rate and review your
-            favorite anime series and episodes.
-          </li>
-          <li>
-            <FaComments /> <strong>Community Chat:</strong> Join discussions and
-            chat with other anime enthusiasts.
-          </li>
-          <li>
-            <FaInfoCircle /> <strong>FAQ:</strong> Find answers to common
-            questions in our FAQ section.
+            <FaBroadcastTower />{" "}
+            <StyledLink href="https://www.miruro.online">
+              {" "}
+              Miruro.online
+            </StyledLink>
           </li>
         </ul>
       </>
     ),
   },
-
   {
     title: "Contact Us",
     content: (
@@ -416,9 +437,9 @@ const sections = [
               target="_blank"
               rel="noopener noreferrer"
             >
-              Discord server
+              Discord
             </StyledLink>{" "}
-            for live discussions and support.
+            server for live discussions and support.
           </li>
           <li>
             <FaReddit /> Visit our{" "}
@@ -460,16 +481,14 @@ function Splash() {
       <MainContent>
         <ShareSection>
           <ShareText>
-            <FaInfoCircle />
+            <FaShareAlt />
             If you enjoy what you're seeing, we'd be thrilled if you could share
             it with your friends and family. Your support is not just
             appreciated; it's essential in helping us grow and continue bringing
             you the best content. By sharing, you become a vital part of our
             community's journey. And don't forget to follow us on our socials!
             It's the best way to stay connected and up-to-date with all the
-            latest news, updates, and exclusive content. Your engagement and
-            feedback fuel our passion and drive us to innovate. Thank you for
-            being with us every step of the way!
+            latest news, updates, and exclusive content.
           </ShareText>
           <ShareButtons>
             <ShareButton
@@ -506,11 +525,11 @@ function Splash() {
           <div key={index}>
             {section.title && (
               <>
-                <strong>{section.title}</strong>
+                <h2>{section.title}</h2>
               </>
             )}
-            {section.content}
-            <Advertising>* Advertisements here *</Advertising>
+            <p>{section.content}</p>
+            {/* <Advertising>* Advertisements here *</Advertising> */}
           </div>
         ))}
       </MainContent>

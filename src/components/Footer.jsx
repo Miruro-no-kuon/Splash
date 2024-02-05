@@ -21,7 +21,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem; /* 1rem = ${baseFontSize}px */
-  margin-top: 2.5em;
+  margin-top: 1.5em;
 `;
 
 const FooterContainer = styled.footer`
@@ -33,14 +33,16 @@ const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Center vertically and horizontally */
 `;
 
 const FooterContentWrapper = styled.div`
-  margin: 0 auto;
+  margin: 0 auto; /* Center horizontally */
   padding: 2rem; /* 2rem = ${2 * baseFontSize}px */
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem; /* 2rem = ${2 * baseFontSize}px */
+  align-items: center; /* Center vertically */
 
   @media (min-width: 48rem) {
     /* 768px */
@@ -90,7 +92,7 @@ const FooterLogoImage = styled.img`
   }
 `;
 
-const FooterColumn = styled.div`
+const FooterLinks = styled.div`
   h3 {
     font-size: ${fontSize1rem};
     margin-bottom: 0.5rem; /* 0.5rem = ${0.5 * baseFontSize}px */
@@ -120,16 +122,16 @@ const DisclaimerText = styled.p`
 
 const currentYear = new Date().getFullYear();
 
-const StyledLinkList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  li {
-    font-size: ${fontSize0_9rem};
-    margin-bottom: 0.25rem; /* 0.25rem = ${0.25 * baseFontSize}px */
-    position: relative; /* Added to create the dot */
-    padding-left: 1rem; /* 1rem = ${baseFontSize}px */
-  }
+const StyledLinkList = styled.div`
+  // Changed from styled.ul to styled.div
+  display: flex; // Enables Flexbox for horizontal alignment
+  padding: 0; // Resets padding
+  padding-bottom: 2rem;
+  margin: 0; // Resets margin
+  justify-content: center; // Center the items horizontally
+  align-items: center; // Align items vertically in the center
+  gap: 1rem; // Adds space between the items
+
   a {
     color: ${theme.textColor};
     text-decoration: none;
@@ -138,13 +140,6 @@ const StyledLinkList = styled.ul`
     &:hover {
       color: ${theme.buttonTextColor};
       text-decoration: underline;
-    }
-
-    &::before {
-      content: "•"; /* Unicode character for a dot */
-      position: absolute;
-      left: 0;
-      color: ${theme.primaryBackgroundColor}; /* Color of the dot */
     }
   }
 `;
@@ -169,7 +164,7 @@ function Footer() {
             <i className="fab fa-discord"></i>
           </a>
           <a
-            href="https://github.com/Miruro-no-kuon/Miruro-no-Kuon"
+            href="https://github.com/Miruro-no-kuon/Miruro"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -185,56 +180,15 @@ function Footer() {
         </SocialIconsWrapper>
         <FooterContentWrapper>
           <FooterLogoImage src={theme.footerLogo} alt="Footer Logo" />
-          <FooterColumn>
-            <h3>Useful Links</h3>
-            <StyledLinkList>
-              <li>
-                <a href="#">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">FAQ</a>
-              </li>
-              <li>
-                <a href="#">Sitemap</a>
-              </li>
-            </StyledLinkList>
-          </FooterColumn>
-
-          <FooterColumn>
-            <h3>Recent Posts</h3>
-            <StyledLinkList>
-              <li>
-                <a href="#">Latest News</a>
-              </li>
-              <li>
-                <a href="#">Product Updates</a>
-              </li>
-              <li>
-                <a href="#">Customer Stories</a>
-              </li>
-            </StyledLinkList>
-          </FooterColumn>
-          <FooterColumn>
-            <h3>Super Links</h3>
-            <StyledLinkList>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">Services</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </StyledLinkList>
-          </FooterColumn>
         </FooterContentWrapper>
+        <FooterLinks>
+          <StyledLinkList>
+            <span>About</span>
+            <a href="#">FAQ</a>
+            <a href="Info">Policy</a>
+            <a href="Info">Terms</a>
+          </StyledLinkList>
+        </FooterLinks>
       </FooterContainer>
       <CopyrightText>
         &copy; {currentYear} Miruro no Kuon. All Rights Reserved.

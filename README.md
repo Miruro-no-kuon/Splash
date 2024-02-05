@@ -37,7 +37,7 @@ Feel free to contribute to this project! Whether you're an experienced developer
 
 - **Code**: Submit bug reports, feature requests, or pull requests.
 - **Documentation**: Improve explanations or share insights in the **[Documentation](README.md)**.
-- **[Issues](https://github.com/Miruro-no-kuon/Miruro-no-Kuon/issues)**: Report any problems you encounter using the project.
+- **[Issues](https://github.com/Miruro-no-kuon/Miruro/issues)**: Report any problems you encounter using the project.
 - **Support**: Help others by answering questions on our **[forums](https://github.com/Miruro-no-kuon)**.
 - **Spread the Word**: If you like the project, share it with others.
 
