@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FaReddit, FaDiscord, FaTwitter, FaGithub } from "react-icons/fa";
 
 // Constants for theme values
 const theme = {
@@ -120,6 +121,21 @@ const DisclaimerText = styled.p`
   padding-top: 0.5rem;
 `;
 
+const ShareButton = styled.a`
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+
+  svg {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    transform: scale(1.15);
+  }
+`;
+
 const currentYear = new Date().getFullYear();
 
 const StyledLinkList = styled.div`
@@ -149,34 +165,34 @@ function Footer() {
     <PageWrapper>
       <FooterContainer>
         <SocialIconsWrapper>
-          <a
+          <ShareButton
             href="https://twitter.com/miruro_official"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a
+            <FaTwitter />
+          </ShareButton>
+          <ShareButton
             href="https://discord.gg/4kfypZ96K4"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-discord"></i>
-          </a>
-          <a
-            href="https://github.com/Miruro-no-kuon/Miruro"
+            <FaDiscord />
+          </ShareButton>
+          <ShareButton
+            href="https://github.com/Miruro-no-kuon/Miruro-no-Kuon"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-github"></i>
-          </a>
-          <a
+            <FaGithub />
+          </ShareButton>
+          <ShareButton
             href="https://www.reddit.com/r/miruro"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-reddit"></i>
-          </a>
+            <FaReddit />
+          </ShareButton>
         </SocialIconsWrapper>
         <FooterContentWrapper>
           <FooterLogoImage src={theme.footerLogo} alt="Footer Logo" />
