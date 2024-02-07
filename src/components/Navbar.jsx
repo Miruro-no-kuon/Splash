@@ -20,10 +20,6 @@ const StyledNavbar = styled.div`
   top: 0;
   text-align: center;
   margin: 0 auto; /* Center horizontally by setting left and right margins to auto */
-  background-color: ${(props) =>
-    props.isTop
-      ? "transparent"
-      : colors.globalPrimaryBgTr}; // Change background color based on scroll position
   backdrop-filter: blur(50px);
   transform: translateY(0);
   z-index: 4;
@@ -157,56 +153,70 @@ const detectUserTheme = () => {
   return false;
 };
 
+const saveThemePreference = (isDarkMode) => {
+  localStorage.setItem("themePreference", isDarkMode ? "dark" : "light");
+};
+
+const getInitialThemePreference = () => {
+  const storedThemePreference = localStorage.getItem("themePreference");
+
+  if (storedThemePreference) {
+    return storedThemePreference === "dark";
+  }
+
+  return detectUserTheme();
+};
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const inputRef = useRef(null);
   const navbarRef = useRef(null);
   const delayTimeout = useRef(null);
-  const [isDarkMode, setIsDarkMode] = useState(detectUserTheme());
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(
-    searchParams.get("query") || ""
-  );
-  const [isTop, setIsTop] = useState(true); // Track if the scroll position is at the top
 
-  // Add scroll event listener to detect scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsTop(window.scrollY === 0);
-    };
+  const [search, setSearch] = useState({
+    isSearchFocused: false,
+    searchQuery: searchParams.get("query") || "",
+  });
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { isSearchFocused, searchQuery } = search;
+
+  const [isDarkMode, setIsDarkMode] = useState(getInitialThemePreference());
 
   // Toggle Dark Mode
   useEffect(() => {
     document.documentElement.classList.toggle("dark-mode", isDarkMode);
   }, [isDarkMode]);
 
-  // Keyboard navigation
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === "/" && inputRef.current) {
-      e.preventDefault();
-      inputRef.current.focus();
-      setIsSearchFocused(true);
-    } else if (e.key === "Escape" && inputRef.current) {
-      inputRef.current.blur();
-      setIsSearchFocused(false);
-    }
-  }, []);
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === "/" && inputRef.current) {
+        e.preventDefault();
+        inputRef.current.focus();
+        setSearch({ ...search, isSearchFocused: true });
+      } else if (e.key === "Escape" && inputRef.current) {
+        inputRef.current.blur();
+        setSearch({ ...search, isSearchFocused: false });
+      } else if (e.shiftKey && e.key === "D") {
+        // Listening for Shift + D
+        e.preventDefault();
+        toggleTheme();
+      }
+    },
+    [search, isDarkMode]
+  ); // Adding isDarkMode as a dependency
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [handleKeyDown]);
 
   // Update search query from URL
+
   useEffect(() => {
-    setSearchQuery(searchParams.get("query") || "");
+    setSearch({ ...search, searchQuery: searchParams.get("query") || "" });
   }, [searchParams]);
 
   const navigateWithQuery = useCallback(
@@ -221,7 +231,7 @@ const Navbar = () => {
 
   const handleInputChange = (e) => {
     const newValue = e.target.value;
-    setSearchQuery(newValue);
+    setSearch({ ...search, searchQuery: newValue });
 
     // Check if the Enter key is pressed
     if (e.key === "Enter") {
@@ -241,10 +251,14 @@ const Navbar = () => {
     inputRef.current.focus();
   };
 
-  const toggleTheme = () => setIsDarkMode((prev) => !prev);
+  const toggleTheme = () => {
+    const newIsDarkMode = !isDarkMode;
+    setIsDarkMode(newIsDarkMode);
+    saveThemePreference(newIsDarkMode);
+  };
 
   return (
-    <StyledNavbar ref={navbarRef} isTop={isTop}>
+    <StyledNavbar ref={navbarRef}>
       <TopContainer>
         <LogoLink to="/">見るろ の 久遠</LogoLink>{" "}
       </TopContainer>

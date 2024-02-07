@@ -26,7 +26,7 @@ const PageWrapper = styled.div`
 
 const FooterContainer = styled.footer`
   color: ${theme.textColor};
-  padding: 1rem; /* 1rem = ${baseFontSize}px */
+  padding: 0rem; /* 1rem = ${baseFontSize}px */
   margin: 0.5rem 0;
   border-top: 0.125rem solid ${theme.primaryBackgroundColor}; /* 2px = 0.125rem */
   position: relative;
@@ -38,7 +38,7 @@ const FooterContainer = styled.footer`
 
 const FooterContentWrapper = styled.div`
   margin: 0 auto; /* Center horizontally */
-  padding: 2rem; /* 2rem = ${2 * baseFontSize}px */
+  padding: 1.5rem; /* 2rem = ${2 * baseFontSize}px */
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem; /* 2rem = ${2 * baseFontSize}px */
@@ -54,7 +54,7 @@ const FooterContentWrapper = styled.div`
 
 const SocialIconsWrapper = styled.div`
   display: flex;
-  margin-top: 3rem; /* 3rem = ${3 * baseFontSize}px */
+  margin-top: 4rem; /* 3rem = ${3 * baseFontSize}px */
   gap: 0.5rem; /* 0.5rem = ${0.5 * baseFontSize}px */
   justify-content: center;
 
@@ -183,7 +183,7 @@ function Footer() {
         </FooterContentWrapper>
         <FooterLinks>
           <StyledLinkList>
-            <span>About</span>
+            {/* <h3>About</h3> */}
             <a href="#">FAQ</a>
             <a href="Info">Policy</a>
             <a href="Info">Terms</a>

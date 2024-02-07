@@ -528,7 +528,7 @@ function Splash() {
                 <h2>{section.title}</h2>
               </>
             )}
-            <p>{section.content}</p>
+            {section.content}
             {/* <Advertising>* Advertisements here *</Advertising> */}
           </div>
         ))}
