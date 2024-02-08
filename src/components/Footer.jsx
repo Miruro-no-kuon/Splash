@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { FaReddit, FaDiscord, FaTwitter, FaGithub } from "react-icons/fa";
 
-// Constants for theme values
 const theme = {
   primaryBackgroundColor: "var(--global-secondary-bg)",
   textColor: "var(--global-text)",
@@ -10,59 +9,33 @@ const theme = {
   footerLogo: "var(--logo-transparent)",
 };
 
-// Constants for font sizes in rem
-const fontSize1rem = "1rem";
-const fontSize0_9rem = "0.9rem";
-const fontSize0_8rem = "0.8rem";
-
-// Base font size (16px) for reference
-const baseFontSize = 16;
-
 const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 1rem; /* 1rem = ${baseFontSize}px */
+  padding: 1rem;
   margin-top: 1.5em;
 `;
 
 const FooterContainer = styled.footer`
   color: ${theme.textColor};
-  padding: 0rem; /* 1rem = ${baseFontSize}px */
+  padding: 0;
   margin: 0.5rem 0;
-  border-top: 0.125rem solid ${theme.primaryBackgroundColor}; /* 2px = 0.125rem */
+  border-top: 0.125rem solid ${theme.primaryBackgroundColor};
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center vertically and horizontally */
-`;
-
-const FooterContentWrapper = styled.div`
-  margin: 0 auto; /* Center horizontally */
-  padding: 1.5rem; /* 2rem = ${2 * baseFontSize}px */
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem; /* 2rem = ${2 * baseFontSize}px */
-  align-items: center; /* Center vertically */
-
-  @media (min-width: 48rem) {
-    /* 768px */
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+  justify-content: center;
 `;
 
 const SocialIconsWrapper = styled.div`
   display: flex;
-  margin-top: 4rem; /* 3rem = ${3 * baseFontSize}px */
-  gap: 0.5rem; /* 0.5rem = ${0.5 * baseFontSize}px */
+  margin-top: 4rem;
+  gap: 0.5rem;
   justify-content: center;
 
   a {
     color: ${theme.textColor};
     text-decoration: none;
-    font-size: ${fontSize1rem};
+    font-size: 1rem;
     transition: color 0.1s ease, transform 0.2s ease;
 
     &:hover {
@@ -79,7 +52,7 @@ const FooterLogoImage = styled.img`
   height: auto;
   display: block;
   position: absolute;
-  top: -3rem; /* -40px / 16 = -2.5rem */
+  top: -3rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -94,28 +67,31 @@ const FooterLogoImage = styled.img`
 `;
 
 const FooterLinks = styled.div`
+  font-weight: bold;
+  padding: 1rem;
+
   h3 {
-    font-size: ${fontSize1rem};
-    margin-bottom: 0.5rem; /* 0.5rem = ${0.5 * baseFontSize}px */
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
     text-align: center;
   }
 
   p {
-    font-size: ${fontSize0_9rem};
-    margin-bottom: 1rem; /* 1rem = ${baseFontSize}px */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
 `;
 
 const CopyrightText = styled.p`
-  font-size: ${fontSize0_8rem};
+  font-size: 0.8rem;
   text-align: center;
   margin: 0.5rem 0;
   padding-top: 0.5rem;
-  border-top: 0.0625rem solid ${theme.primaryBackgroundColor}; /* 1px = 0.0625rem */
+  border-top: 0.0625rem solid ${theme.primaryBackgroundColor};
 `;
 
 const DisclaimerText = styled.p`
-  font-size: ${fontSize0_8rem};
+  font-size: 0.8rem;
   text-align: center;
   margin: 0;
   padding-top: 0.5rem;
@@ -139,14 +115,13 @@ const ShareButton = styled.a`
 const currentYear = new Date().getFullYear();
 
 const StyledLinkList = styled.div`
-  // Changed from styled.ul to styled.div
-  display: flex; // Enables Flexbox for horizontal alignment
-  padding: 0; // Resets padding
+  display: flex;
+  padding: 0;
   padding-bottom: 2rem;
-  margin: 0; // Resets margin
-  justify-content: center; // Center the items horizontally
-  align-items: center; // Align items vertically in the center
-  gap: 1rem; // Adds space between the items
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 
   a {
     color: ${theme.textColor};
@@ -194,12 +169,9 @@ function Footer() {
             <FaReddit />
           </ShareButton>
         </SocialIconsWrapper>
-        <FooterContentWrapper>
-          <FooterLogoImage src={theme.footerLogo} alt="Footer Logo" />
-        </FooterContentWrapper>
+        <FooterLogoImage src={theme.footerLogo} alt="Footer Logo" />
         <FooterLinks>
           <StyledLinkList>
-            {/* <h3>About</h3> */}
             <a href="#">FAQ</a>
             <a href="Info">Policy</a>
             <a href="Info">Terms</a>
