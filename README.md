@@ -1,4 +1,4 @@
-# Splash page
+# Splash page 🚀
 
 The Splash page is a component that serves as the landing page for the Miruro anime streaming website. It displays a banner image, a title, a subtitle, and various sections of content, each providing information about Miruro and and alternative domains.
 
@@ -42,4 +42,4 @@ Feel free to contribute to this project! Whether you're an experienced developer
 - **Spread the Word**: If you like the project, share it with others.
 
 Everyone is welcome! Use issues or email me for anything you need. Thanks for being part of our project!
-Feel free to reach out at **miruro@proton.me** if you have any questions or need further assistance. Happy coding! 🚀
+Feel free to reach out at **miruro@proton.me** if you have any questions or need further assistance. Happy coding!

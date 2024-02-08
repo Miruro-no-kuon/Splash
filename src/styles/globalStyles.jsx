@@ -65,6 +65,10 @@ const GlobalStyles = createGlobalStyle`
   --global-secondary-bg: #e0e0e0;
   --global-tertiary-bg: #eaeaea;
 
+  --primary-accent: #ffffff;
+  --primary-accent-bg: #5900ff;
+  --primary-accent-bg-tr: rgba(89, 0, 255, 0.5);
+
   --logo-text-transparent: url(${logoTextTransparentBlack});
   --logo-transparent: url(${logoTransparentBlack});
 }

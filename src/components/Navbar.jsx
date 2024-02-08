@@ -197,10 +197,13 @@ const Navbar = () => {
       } else if (e.key === "Escape" && inputRef.current) {
         inputRef.current.blur();
         setSearch({ ...search, isSearchFocused: false });
-      } else if (e.shiftKey && e.key === "D") {
-        // Listening for Shift + D
-        e.preventDefault();
-        toggleTheme();
+      } else if (e.shiftKey && e.key.toLowerCase() === "d") {
+        // Check if search bar is focused
+        if (document.activeElement !== inputRef.current) {
+          // Listening for Shift + D or Shift + d and ensuring search bar is not focused
+          e.preventDefault();
+          toggleTheme();
+        }
       }
     },
     [search, isDarkMode]
@@ -268,9 +271,9 @@ const Navbar = () => {
         </ThemeToggleBtn>
       </ThemeToggleContainer>
       <InputContainer>
-        <Icon $isFocused={isSearchFocused}>
+        {/* <Icon $isFocused={isSearchFocused}> SEARCH MAGNIFYING GLASS
           <i className="fas fa-search"></i>
-        </Icon>
+        </Icon> */}
         <SearchInput
           type="text"
           placeholder="Search Anime"
@@ -282,9 +285,9 @@ const Navbar = () => {
         <ClearButton $query={searchQuery} onClick={handleClearSearch}>
           <i className="fas fa-times"></i>
         </ClearButton>
-        <SlashToggleBtn $isFocused={isSearchFocused}>
+        {/* <SlashToggleBtn $isFocused={isSearchFocused}> SLASH BUTTON
           <i className="fa-solid fa-slash fa-rotate-90"></i>
-        </SlashToggleBtn>
+        </SlashToggleBtn> */}
       </InputContainer>
     </StyledNavbar>
   );
