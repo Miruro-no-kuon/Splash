@@ -12,8 +12,8 @@ import {
   FaBroadcastTower,
   FaShareAlt,
 } from "react-icons/fa";
-import BannerImageURL from "/src/assets/banner-one_piece-compressed.jpg";
-import LogoURL from "/src/assets/miruro-text-transparent-white.png";
+import BannerImageURL from "/src/assets/demon-slayer.webp";
+import LogoURL from "/src/assets/miruro-text-transparent-white.webp";
 
 const colors = {
   textColor: "var(--global-text)",

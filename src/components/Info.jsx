@@ -1,7 +1,5 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { Link } from "react-router-dom";
-import BannerImageURL from "/src/assets/banner-one_piece-compressed.jpg";
 
 const colors = {
   textColor: "var(--global-text)",
