@@ -70,7 +70,7 @@ const InputContainer = styled.div`
   height: 1rem;
   align-items: center;
   padding: 0.8rem;
-  border-radius: 0.2rem;
+  border-radius: var(--global-border-radius);
   background-color: ${colors.globalInputDiv};
 `;
 
@@ -129,7 +129,7 @@ const ThemeToggleBtn = styled.button`
 const SlashToggleBtn = styled.button`
   background: transparent;
   border: 2px solid ${colors.globalText};
-  border-radius: 0.2rem;
+  border-radius: var(--global-border-radius);
   padding: 0.3rem;
   color: ${colors.globalText};
   font-size: 0.5rem;

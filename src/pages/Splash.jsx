@@ -12,7 +12,7 @@ import {
   FaBroadcastTower,
   FaShareAlt,
 } from "react-icons/fa";
-import BannerImageURL from "/src/assets/demon-slayer.webp";
+import BannerImageURL from "/src/assets/banner.webp";
 import LogoURL from "/src/assets/miruro-text-transparent-white.webp";
 
 const colors = {
@@ -54,11 +54,10 @@ const Card = styled.div`
   flex-direction: column;
   max-width: 50rem;
   margin: 4rem auto 0 auto;
-  border-radius: 0.2rem;
+  border-radius: var(--global-border-radius);
   overflow: hidden;
   box-shadow: 0 0 1rem var(--global-card-shadow);
   animation: ${fadeInAnimation} 0.5s ease-in-out;
-
   @media (min-width: 62.5rem) {
     flex-direction: row;
   }
@@ -80,16 +79,14 @@ const BannerImage = styled.div`
   height: 100%;
   background-image: url(${BannerImageURL});
   background-size: cover;
-  background-position: left;
+  background-position: center;
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: -1;
 `;
 
 const Content = styled.div`
   flex: 1;
-  padding: ${colors.paddingSize};
+  padding: 1.5rem;
   color: #e8e8e8;
   position: relative;
   z-index: 1;
@@ -107,11 +104,6 @@ const SplashLogo = styled.img`
 
 const ContentWrapper = styled.div``;
 
-const Subtitle = styled.p`
-  font-size: 1.5rem;
-  margin: 2rem 0 1rem 0.5rem;
-`;
-
 const Button = styled(Link)`
   padding: 1rem 2rem;
   background-color: ${colors.buttonBackground};
@@ -123,9 +115,20 @@ const Button = styled(Link)`
   align-items: center;
   gap: 0.3125rem;
   transition: background-color 0.2s ease, transform 0.2s ease;
-
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
   &:hover {
     transform: scale(1.075);
+  }
+`;
+
+const Subtitle = styled.p`
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  @media (max-width: 1000px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -147,7 +150,7 @@ const Keyword = styled.span`
 
 const Paragraph = styled.p`
   font-size: 1rem;
-  margin-bottom: ${colors.paddingSize};
+  margin-bottom: 1.5rem;
   line-height: 1.6;
   color: ${colors.textColor};
 `;
@@ -155,32 +158,20 @@ const Paragraph = styled.p`
 const MainContent = styled.div`
   max-width: 50rem;
   margin: 0 auto;
-  padding: ${colors.paddingSize};
+
   color: ${colors.textColor};
   font-size: 1rem;
   line-height: 1.6;
 `;
 
-const Advertising = styled.div`
-  margin: ${colors.paddingSize} 0;
-  text-align: center;
-  background-color: ${colors.adBackground};
-  padding: ${colors.paddingSize};
-  border-radius: 0.2rem;
-  color: ${colors.textColor};
-  background-image: url("/src/assets/advertisement.jpg");
-  background-size: cover;
-  background-position: center;
-`;
-
 const ShareSection = styled.div`
   display: flex;
+  padding: 1rem;
   flex-direction: column;
   align-items: center;
-  margin: ${colors.paddingSize} 0;
-  padding: ${colors.paddingSize};
+  margin-top: 1.5rem;
   background-color: ${colors.adBackground};
-  border-radius: 0.2rem;
+  border-radius: var(--global-border-radius);
   color: ${colors.textColor};
   text-align: center;
 `;
@@ -196,16 +187,10 @@ const ShareText = styled.span`
 `;
 
 const ShareButtons = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
   background: var(--global-primary-bg);
-  max-width: 10rem;
-  text-align: center;
-  border-radius: 0.2rem;
+  border-radius: var(--global-border-radius);
   padding: 0.5rem;
-  margin: 0.5rem;
-
+  padding-top: 0.8rem;
   & > * {
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -242,6 +227,35 @@ const StyledLink = styled.a`
 `;
 
 const sections = [
+  {
+    title: "Official domains",
+    content: (
+      <>
+        <Paragraph>
+          If you experience downtime on one of our domains, please know that you
+          are currently on our{" "}
+          <StyledLink href="https://www.miruro.com">
+            <strong>main</strong>
+          </StyledLink>{" "}
+          website. You'll find links to other operational domains right here,
+          ensuring a seamless and uninterrupted streaming experience.
+        </Paragraph>
+        <ul>
+          <li>
+            <FaBroadcastTower />{" "}
+            <StyledLink href="https://www.miruro.tv"> Miruro.tv</StyledLink>
+          </li>
+          <li>
+            <FaBroadcastTower />{" "}
+            <StyledLink href="https://www.miruro.online">
+              {" "}
+              Miruro.online
+            </StyledLink>
+          </li>
+        </ul>
+      </>
+    ),
+  },
   {
     title: "What's Miruro?",
     content: (
@@ -317,98 +331,6 @@ const sections = [
       </>
     ),
   },
-  // {
-  //   title: "How to Use Miruro",
-  //   content: (
-  //     <>
-  //       <Paragraph>
-  //         To start using Miruro and enjoy anime streaming, follow these simple
-  //         steps:
-  //       </Paragraph>
-  //       <ol>
-  //         <li>
-  //           Visit the Miruro website by clicking on the "Go to homepage" button
-  //           above.
-  //         </li>
-  //         <li>
-  //           Browse through our extensive collection of anime titles and select
-  //           the one you want to watch.
-  //         </li>
-  //         <li>
-  //           Choose your preferred streaming quality and language (subtitles or
-  //           dubbing).
-  //         </li>
-  //         <li>Click on the play button to start watching your chosen anime.</li>
-  //         <li>
-  //           Feel free to explore other features, such as downloading episodes
-  //           and joining our anime-loving community.
-  //         </li>
-  //       </ol>
-  //       <Paragraph>
-  //         That's it! You're now ready to embark on an exciting anime viewing
-  //         journey with Miruro.
-  //       </Paragraph>
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: "Additional Information",
-  //   content: (
-  //     <>
-  //       <Paragraph>
-  //         We are continuously working to improve Miruro and provide you with the
-  //         best anime streaming experience. Here are some additional details:
-  //       </Paragraph>
-  //       <ul>
-  //         <li>
-  //           <FaUser /> <strong>User Profiles:</strong> Create your own user
-  //           profile and personalize your anime watching experience.
-  //         </li>
-  //         <li>
-  //           <FaStar /> <strong>Rating System:</strong> Rate and review your
-  //           favorite anime series and episodes.
-  //         </li>
-  //         <li>
-  //           <FaComments /> <strong>Community Chat:</strong> Join discussions and
-  //           chat with other anime enthusiasts.
-  //         </li>
-  //         <li>
-  //           <FaInfoCircle /> <strong>FAQ:</strong> Find answers to common
-  //           questions in our FAQ section.
-  //         </li>
-  //       </ul>
-  //     </>
-  //   ),
-  // },
-  {
-    title: "Official domains",
-    content: (
-      <>
-        <Paragraph>
-          If you experience downtime on one of our domains, please know that you
-          are currently on our{" "}
-          <StyledLink href="https://www.miruro.com">
-            <strong>main</strong>
-          </StyledLink>{" "}
-          website. You'll find links to other operational domains right here,
-          ensuring a seamless and uninterrupted streaming experience.
-        </Paragraph>
-        <ul>
-          <li>
-            <FaBroadcastTower />{" "}
-            <StyledLink href="https://www.miruro.tv"> Miruro.tv</StyledLink>
-          </li>
-          <li>
-            <FaBroadcastTower />{" "}
-            <StyledLink href="https://www.miruro.online">
-              {" "}
-              Miruro.online
-            </StyledLink>
-          </li>
-        </ul>
-      </>
-    ),
-  },
   {
     title: "Contact Us",
     content: (
@@ -465,7 +387,7 @@ function Splash() {
         <BannerImage />
         <Content>
           <Title>
-            <SplashLogo src={LogoURL} alt="Footer Logo" />
+            <SplashLogo src={LogoURL} alt="Splash Logo" />
           </Title>
           <ContentWrapper>
             <Button to="https://www.miruro.tv">
@@ -506,7 +428,7 @@ function Splash() {
               <FaDiscord />
             </ShareButton>
             <ShareButton
-              href="https://github.com/Miruro-no-kuon/Miruro-no-Kuon"
+              href="https://github.com/Miruro-no-kuon/Miruro"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -529,7 +451,6 @@ function Splash() {
               </>
             )}
             {section.content}
-            {/* <Advertising>* Advertisements here *</Advertising> */}
           </div>
         ))}
       </MainContent>
