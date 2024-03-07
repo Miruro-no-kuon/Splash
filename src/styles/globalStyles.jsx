@@ -64,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
   --global-filter: rgba(0, 0, 0, 0.60);
   --global-secondary-bg: #e0e0e0;
   --global-tertiary-bg: #eaeaea;
-
+  --global-border-radius: 0.4rem;
   --primary-accent: #ffffff;
   --primary-accent-bg: #5900ff;
   --primary-accent-bg-tr: rgba(89, 0, 255, 0.5);
@@ -78,7 +78,7 @@ body {
   font-family: Overpass, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   margin: 0;
-  padding: 0 1rem 1rem 1rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
   max-width: 125rem;
   margin: auto;
   background-color: var(--global-primary-bg);

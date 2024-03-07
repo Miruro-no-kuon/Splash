@@ -10,6 +10,19 @@ import Footer from "./components/Footer";
 import Splash from "./pages/Splash";
 import Info from "./components/Info";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 0); // Adjust the delay as needed
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -25,6 +38,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         {/* Add a Route "Splash" for any other route*/}
         <Route path="/" element={<Splash />} />

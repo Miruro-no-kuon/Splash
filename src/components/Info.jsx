@@ -8,7 +8,6 @@ const colors = {
   buttonHoverBackground: "var(--global-button-hover-bg)",
   adBackground: "var(--global-ad-bg)",
   customColor: "var(--your-custom-color)",
-  paddingSize: "1.5rem",
 };
 
 const StyledLink = styled.a`
@@ -26,7 +25,6 @@ const SplashContainer = styled.div`
 
 const Paragraph = styled.p`
   font-size: 1rem;
-  margin-bottom: ${colors.paddingSize};
   line-height: 1.6;
   color: ${colors.textColor};
 `;
@@ -34,7 +32,6 @@ const Paragraph = styled.p`
 const MainContent = styled.div`
   max-width: 50rem;
   margin: 0 auto;
-  padding: ${colors.paddingSize};
   color: ${colors.textColor};
   font-size: 1rem;
   line-height: 1.6;
