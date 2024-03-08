@@ -9,10 +9,52 @@
     />
     <link
       rel="icon"
-      type="image/svg+xml"
-      href="src/assets/favicons/favicon-miruro.webp"
+      type="image/png"
+      href="./src/assets/favicons/android-chrome-512x512.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./src/assets/favicons/apple-touch-icon.png"
     />
     <title>Miruro</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <style>
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 5px; /* Set the width of the scrollbar */
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: transparent; /* Make scrollbar track transparent */
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888; /* Color of the scrollbar handle */
+        border-radius: 10px; /* Roundness of the scrollbar handle */
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Color of the scrollbar handle on hover */
+      }
+
+      /* Define your theme styles here */
+      body[data-theme="dark"] {
+        background-color: #080808;
+        color: #fff; /* Adjust text color for dark theme */
+      }
+
+      body[data-theme="light"] {
+        background-color: #f5f5f5;
+        color: #000; /* Adjust text color for light theme */
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
