@@ -4,7 +4,7 @@ import logoTextTransparentWhite from "/src/assets/miruro-text-transparent-white.
 import logoTransparentBlack from "/src/assets/miruro-transparent-black.webp";
 import logoTransparentWhite from "/src/assets/miruro-transparent-white.webp";
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyless = createGlobalStyle`
 
 /* Base Colors - Darker Shades for Dark Mode */
 :root.dark-mode {
@@ -93,4 +93,4 @@ body {
 }
 `;
 
-export default GlobalStyles;
+export default GlobalStyless;
