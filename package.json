@@ -12,7 +12,7 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "aws-amplify": "^6.0.13",
+    "aws-amplify": "^6.0.20",
     "bun": "^1.0.25",
     "fortawesome": "^0.0.1-security",
     "react": "^18.2.0",
